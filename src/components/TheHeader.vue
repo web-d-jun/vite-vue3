@@ -13,9 +13,10 @@ import IconBars from 'icons/Bars.vue'
 <style lang="scss" scoped>
 #header {
     width: 100%;
-    height: 50px;
-    border-bottom: 1px solid green;
+    height: $headerHeight;
+    outline: 1px solid green;
     display: flex;
     align-items: center;
+    position: relative;
 }
 </style>

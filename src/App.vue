@@ -1,6 +1,7 @@
 <template>
     <TheHeader />
     <!-- <router-view></router-view> -->
+    <AppMenu />
 </template>
 
 <script setup>
@@ -13,11 +14,16 @@ const TheHeader = defineAsyncComponent({
     loadingComponent: LoadingComponent,
     errorComponent: ErrorComponent,
 })
+const AppMenu = defineAsyncComponent({
+    loader: () => import('components/AppMenu.vue'),
+    loadingComponent: LoadingComponent,
+    errorComponent: ErrorComponent,
+})
 </script>
 
 <style>
 body {
-  margin: 0;
+    margin: 0;
 }
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
