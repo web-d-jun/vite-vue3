@@ -1,9 +1,9 @@
 <template>
     <div id="header">
-        <!-- <app-button>
-            <template #icon> </template>
+        <!-- <app-button shape="round">
+            <template #icon></template>
         </app-button> -->
-        <IconBars />
+        <div class="icon__contents"><IconBars /></div>
     </div>
 </template>
 <script setup>
@@ -14,6 +14,8 @@ import IconBars from 'icons/Bars.vue'
 #header {
     width: 100%;
     height: 50px;
-    border: 1px solid green;
+    border-bottom: 1px solid green;
+    display: flex;
+    align-items: center;
 }
 </style>
