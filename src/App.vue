@@ -1,7 +1,8 @@
 <template>
     <TheHeader />
-    <!-- <router-view></router-view> -->
     <AppMenu />
+    <!-- <router-view></router-view> -->
+    
 </template>
 
 <script setup>
