@@ -1,2 +1,9 @@
 $headerHeight: 50px;
 $disabledColor: #dcdfe6;
+
+.flex {
+    display: flex;
+    &.align-center {
+        align-items: center;
+    }
+}

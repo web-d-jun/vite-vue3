@@ -6,11 +6,13 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.3",
+    "@fortawesome/vue-fontawesome": "^3.0.0-4",
     "vue": "^3.0.5",
     "vue-router": "^4.0.10"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@vitejs/plugin-vue": "^1.2.4",
     "@vue/compiler-sfc": "^3.0.5",
     "sass": "^1.35.2",
