@@ -7,3 +7,9 @@ $disabledColor: #dcdfe6;
         align-items: center;
     }
 }
+.cursor-pointer {
+    &:hover {
+        cursor: pointer;
+    }
+    cursor: pointer;
+}

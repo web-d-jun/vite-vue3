@@ -10,7 +10,7 @@
                 <div><font-awesome-icon icon="moon"></font-awesome-icon></div>
             </div>
 
-            <AppSwitch :active="active" @click="active = !active" />
+            <AppSwitch :active="active" @click.prevent.stop="handleSwitch" class="cursor-pointer" />
             <div class="theme-change-animation"></div>
         </div>
     </div>
@@ -22,13 +22,43 @@ import IconBars from 'icons/Bars.vue'
 import AppSwitch from 'components/AppSwitch.vue'
 const active = ref(false)
 
-const getElement = () => {
+const EventListenerTheme = () => {
     const themeButtonElement = document.querySelector('#switch')
-    console.log(themeButtonElement)
+    const blackAndWhiteThemeElement = document.querySelector('.theme-change-animation')
+    const switchContainerElement = document.querySelector('.switch__container')
+    console.log(switchContainerElement,'switchContainerElement')
+    const mouseOverOut = () => {
+        themeButtonElement.addEventListener('mouseover', (e) => {
+            blackAndWhiteThemeElement.style.right = '-1500px'
+            blackAndWhiteThemeElement.style.top = '-1700px'
+            console.log(e)
+        })
+        themeButtonElement.addEventListener('mouseout', (e) => {
+            blackAndWhiteThemeElement.style.right = '-2000px'
+            blackAndWhiteThemeElement.style.top = '-2000px'
+        })
+    }
+    const mouseClick = () => {
+        console.log(active.value)
+
+        blackAndWhiteThemeElement.style.right = '-1000px'
+        blackAndWhiteThemeElement.style.top = '-1000px'
+    }
+    return {
+        mouseOverOut,
+        mouseClick,
+    }
+}
+
+const handleSwitch = () => {
+    const eventListenerTheme = EventListenerTheme()
+    active.value = !active.value
+    eventListenerTheme.mouseClick()
 }
 
 onMounted(() => {
-  getElement()
+    const eventListenerTheme = EventListenerTheme()
+    eventListenerTheme.mouseOverOut()
 })
 
 // themeButtonElement.addEventListener('mouseover', (e) => {
@@ -52,12 +82,12 @@ onMounted(() => {
         height: 20px;
         overflow: hidden;
         position: relative;
-        &:hover {
-            & .theme-change-animation {
-                right: -1500px;
-                top: -1700px;
-            }
-        }
+        // &:hover {
+        //     & .theme-change-animation {
+        //         right: -1500px;
+        //         top: -1700px;
+        //     }
+        // }
 
         & .dark-bright__wrap {
             &.bright {
@@ -76,6 +106,12 @@ onMounted(() => {
             -moz-transition: all 0.4s ease-in-out;
             -o-transition: all 0.4s ease-in-out;
             transition: all 0.4s ease-in-out;
+            &.dark ~ .theme-change-animation {
+                background: #ffe000;
+            }
+            &.bright ~ .theme-change-animation {
+                background: #000;
+            }
         }
         & .theme-change-animation {
             position: fixed;
