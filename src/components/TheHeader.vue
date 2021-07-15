@@ -5,12 +5,7 @@
         </app-button> -->
         <div class="icon__container"><IconBars /></div>
         <div class="switch__container flex align-center">
-            <div
-                :class="[
-                    'dark-bright__wrap',
-                    { dark: active, bright: !active },
-                ]"
-            >
+            <div :class="['dark-bright__wrap', { dark: active, bright: !active }]">
                 <div><font-awesome-icon icon="sun"></font-awesome-icon></div>
                 <div><font-awesome-icon icon="moon"></font-awesome-icon></div>
             </div>
@@ -21,11 +16,24 @@
     </div>
 </template>
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import AppButton from 'components/AppButton.vue'
 import IconBars from 'icons/Bars.vue'
 import AppSwitch from 'components/AppSwitch.vue'
 const active = ref(false)
+
+const getElement = () => {
+    const themeButtonElement = document.querySelector('#switch')
+    console.log(themeButtonElement)
+}
+
+onMounted(() => {
+  getElement()
+})
+
+// themeButtonElement.addEventListener('mouseover', (e) => {
+//     console.log(e)
+// })
 </script>
 <style lang="scss" scoped>
 #header {
@@ -44,6 +52,12 @@ const active = ref(false)
         height: 20px;
         overflow: hidden;
         position: relative;
+        &:hover {
+            & .theme-change-animation {
+                right: -1500px;
+                top: -1700px;
+            }
+        }
 
         & .dark-bright__wrap {
             &.bright {
@@ -70,8 +84,8 @@ const active = ref(false)
             background: #000;
             width: 2000px;
             height: 2000px;
-            right: -60%;
-            top: -130%;
+            right: -2000px;
+            top: -2000px;
             -webkit-transition: all 0.4s ease-in-out;
             -moz-transition: all 0.4s ease-in-out;
             -o-transition: all 0.4s ease-in-out;
