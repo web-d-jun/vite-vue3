@@ -25,7 +25,7 @@ const props = defineProps({
   -o-transition: 0.1s ease-in-out;
   transition: 0.1s ease-in-out;
   &.active {
-    background-color: blue;
+    background-color: #2d2d2d;
     & .switch-button {
       left: 20px;
     }

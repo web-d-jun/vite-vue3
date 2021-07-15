@@ -16,6 +16,7 @@
             </div>
 
             <AppSwitch :active="active" @click="active = !active" />
+            <div class="theme-change-animation"></div>
         </div>
     </div>
 </template>
@@ -42,18 +43,35 @@ const active = ref(false)
     .switch__container {
         height: 20px;
         overflow: hidden;
+        position: relative;
 
         & .dark-bright__wrap {
             &.bright {
                 top: 10px;
+                color: #ff5200;
             }
             &.dark {
                 top: -10px;
+                color: #ffe000;
             }
             position: relative;
 
             padding-right: 10px;
             font-size: 15px;
+            -webkit-transition: all 0.4s ease-in-out;
+            -moz-transition: all 0.4s ease-in-out;
+            -o-transition: all 0.4s ease-in-out;
+            transition: all 0.4s ease-in-out;
+        }
+        & .theme-change-animation {
+            position: fixed;
+            z-index: -9999;
+            border-radius: 50%;
+            background: #000;
+            width: 2000px;
+            height: 2000px;
+            right: -60%;
+            top: -130%;
             -webkit-transition: all 0.4s ease-in-out;
             -moz-transition: all 0.4s ease-in-out;
             -o-transition: all 0.4s ease-in-out;
