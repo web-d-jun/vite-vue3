@@ -26,7 +26,7 @@ const EventListenerTheme = () => {
     const themeButtonElement = document.querySelector('#switch')
     const blackAndWhiteThemeElement = document.querySelector('.theme-change-animation')
     const switchContainerElement = document.querySelector('.switch__container')
-    console.log(switchContainerElement,'switchContainerElement')
+    console.log(switchContainerElement, 'switchContainerElement')
     const mouseOverOut = () => {
         themeButtonElement.addEventListener('mouseover', (e) => {
             blackAndWhiteThemeElement.style.right = '-1500px'
@@ -39,10 +39,10 @@ const EventListenerTheme = () => {
         })
     }
     const mouseClick = () => {
-        console.log(active.value)
-
-        blackAndWhiteThemeElement.style.right = '-1000px'
-        blackAndWhiteThemeElement.style.top = '-1000px'
+        blackAndWhiteThemeElement.classList.add('play')
+        setTimeout(() => {
+            blackAndWhiteThemeElement.classList.remove('play')
+        }, 1050)
     }
     return {
         mouseOverOut,
@@ -107,10 +107,10 @@ onMounted(() => {
             -o-transition: all 0.4s ease-in-out;
             transition: all 0.4s ease-in-out;
             &.dark ~ .theme-change-animation {
-                background: #ffe000;
+                background: #000;
             }
             &.bright ~ .theme-change-animation {
-                background: #000;
+                background: #ffe000;
             }
         }
         & .theme-change-animation {
@@ -126,7 +126,16 @@ onMounted(() => {
             -moz-transition: all 0.4s ease-in-out;
             -o-transition: all 0.4s ease-in-out;
             transition: all 0.4s ease-in-out;
+            &.play {
+                animation: 1s expand;
+            }
         }
+    }
+}
+@keyframes expand {
+    to {
+        top: -320px;
+        right: -300px;
     }
 }
 </style>
