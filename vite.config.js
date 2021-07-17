@@ -18,6 +18,7 @@ export default defineConfig({
             components: path.resolve(__dirname, 'src/components/'),
             views: path.resolve(__dirname, 'src/views/'),
             icons: path.resolve(__dirname, 'src/components/icons/'),
+            js: path.resolve(__dirname, 'src/js/'),
         },
     },
     build: {

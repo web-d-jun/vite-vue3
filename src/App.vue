@@ -2,7 +2,6 @@
     <TheHeader />
     <AppMenu />
     <!-- <router-view></router-view> -->
-    
 </template>
 
 <script setup>
@@ -23,8 +22,12 @@ const AppMenu = defineAsyncComponent({
 </script>
 
 <style>
+@import '@/scss/root.scss';
 body {
     margin: 0;
+}
+body.dark {
+    background-color: #1e1f21;
 }
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;

@@ -1,16 +1,13 @@
 <template>
     <div id="header" class="flex">
-        <!-- <app-button shape="round">
-            <template #icon></template>
-        </app-button> -->
-        <div class="icon__container"><IconBars /></div>
+        <div class="icon__container"><IconBars class="cursor-pointer" @click="isExpandMenu" /></div>
         <div class="switch__container flex align-center">
-            <div :class="['dark-bright__wrap', { dark: active, bright: !active }]">
+            <div :class="['dark-bright__wrap', { dark: themeActive, bright: !themeActive }]">
                 <div><font-awesome-icon icon="sun"></font-awesome-icon></div>
                 <div><font-awesome-icon icon="moon"></font-awesome-icon></div>
             </div>
 
-            <AppSwitch :active="active" @click.prevent.stop="handleSwitch" class="cursor-pointer" />
+            <AppSwitch :active="themeActive" @click.prevent.stop="handleSwitch" class="cursor-pointer theme-color" />
             <div class="theme-change-animation"></div>
         </div>
     </div>
@@ -20,25 +17,45 @@ import { ref, onMounted } from 'vue'
 import AppButton from 'components/AppButton.vue'
 import IconBars from 'icons/Bars.vue'
 import AppSwitch from 'components/AppSwitch.vue'
-const active = ref(false)
+import { setCookie, getCookie } from 'js/common.js'
+const themeActive = ref(false)
+const targetBodyElement = document.querySelector('body')
+targetBodyElement.className = ''
+console.log(getCookie('themeType'), 'themeType')
+if (getCookie('themeType') === '' || getCookie('themeType') === 'bright') {
+    //bright
+    themeActive.value = false
+} else {
+    //dark
+    themeActive.value = true
+    targetBodyElement.className = ''
+    targetBodyElement.classList.add('dark')
+}
 
 const EventListenerTheme = () => {
     const themeButtonElement = document.querySelector('#switch')
     const blackAndWhiteThemeElement = document.querySelector('.theme-change-animation')
     const switchContainerElement = document.querySelector('.switch__container')
-    console.log(switchContainerElement, 'switchContainerElement')
     const mouseOverOut = () => {
         themeButtonElement.addEventListener('mouseover', (e) => {
-            blackAndWhiteThemeElement.style.right = '-1500px'
-            blackAndWhiteThemeElement.style.top = '-1700px'
-            console.log(e)
+            blackAndWhiteThemeElement.style.right = '-2500px'
+            blackAndWhiteThemeElement.style.top = '-2700px'
         })
         themeButtonElement.addEventListener('mouseout', (e) => {
-            blackAndWhiteThemeElement.style.right = '-2000px'
-            blackAndWhiteThemeElement.style.top = '-2000px'
+            blackAndWhiteThemeElement.style.right = '-3000px'
+            blackAndWhiteThemeElement.style.top = '-3000px'
         })
     }
     const mouseClick = () => {
+        setTimeout(() => {
+            targetBodyElement.className = ''
+            if (themeActive.value) {
+                targetBodyElement.classList.add('dark')
+            } else {
+                targetBodyElement.classList.add('bright')
+            }
+        }, 400)
+
         blackAndWhiteThemeElement.classList.add('play')
         setTimeout(() => {
             blackAndWhiteThemeElement.classList.remove('play')
@@ -50,10 +67,19 @@ const EventListenerTheme = () => {
     }
 }
 
+const isExpandMenu = () => {
+    alert('/?')
+}
+
 const handleSwitch = () => {
     const eventListenerTheme = EventListenerTheme()
-    active.value = !active.value
+    themeActive.value = !themeActive.value
     eventListenerTheme.mouseClick()
+    if (themeActive.value) {
+        setCookie('themeType', 'dark', 1)
+    } else {
+        setCookie('themeType', 'bright', 1)
+    }
 }
 
 onMounted(() => {
@@ -75,6 +101,10 @@ onMounted(() => {
     position: relative;
     padding: 0 10px;
     box-sizing: border-box;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
     .icon__container {
         flex: 1;
     }
@@ -82,14 +112,8 @@ onMounted(() => {
         height: 20px;
         overflow: hidden;
         position: relative;
-        // &:hover {
-        //     & .theme-change-animation {
-        //         right: -1500px;
-        //         top: -1700px;
-        //     }
-        // }
-
         & .dark-bright__wrap {
+            background-color: transparent;
             &.bright {
                 top: 10px;
                 color: #ff5200;
@@ -107,21 +131,21 @@ onMounted(() => {
             -o-transition: all 0.4s ease-in-out;
             transition: all 0.4s ease-in-out;
             &.dark ~ .theme-change-animation {
-                background: #000;
+                background: #1e1f21;
             }
             &.bright ~ .theme-change-animation {
-                background: #ffe000;
+                background: #fff;
             }
         }
         & .theme-change-animation {
             position: fixed;
             z-index: -9999;
-            border-radius: 50%;
+            border-radius: 50% 0 0 50%;
             background: #000;
-            width: 2000px;
-            height: 2000px;
-            right: -2000px;
-            top: -2000px;
+            width: 3000px;
+            height: 3000px;
+            right: -3000px;
+            top: -3000px;
             -webkit-transition: all 0.4s ease-in-out;
             -moz-transition: all 0.4s ease-in-out;
             -o-transition: all 0.4s ease-in-out;
@@ -134,8 +158,8 @@ onMounted(() => {
 }
 @keyframes expand {
     to {
-        top: -320px;
-        right: -300px;
+        top: -300px;
+        right: -100px;
     }
 }
 </style>

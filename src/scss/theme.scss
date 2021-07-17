@@ -1,0 +1,26 @@
+.dark {
+    background-color: #1e1f21;
+    #header {
+        background-color: #292a2d;
+        color: #d9d9d9;
+    }
+    #menuContainer {
+        background-color: #292a2d;
+        color: #d9d9d9;
+    }
+    .bars__contents {
+        & .bar-piece {
+            background-color: var(--primary-dark-color);
+        }
+    }
+}
+.bright {
+    #header {
+        background-color: var(--primary-bright-color);
+    }
+    .bars__contents {
+        & .bar-piece {
+            background-color: var(--default-color);
+        }
+    }
+}
