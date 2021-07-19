@@ -25,6 +25,7 @@ console.log(getCookie('themeType'), 'themeType')
 if (getCookie('themeType') === '' || getCookie('themeType') === 'bright') {
     //bright
     themeActive.value = false
+    targetBodyElement.classList.add('bright')
 } else {
     //dark
     themeActive.value = true
@@ -95,7 +96,6 @@ onMounted(() => {
 #header {
     width: 100%;
     height: $headerHeight;
-    outline: 1px solid green;
     display: flex;
     align-items: center;
     position: relative;
@@ -105,6 +105,7 @@ onMounted(() => {
     -moz-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
+    z-index: 1;
     .icon__container {
         flex: 1;
     }

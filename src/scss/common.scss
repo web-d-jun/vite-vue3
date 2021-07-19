@@ -1,11 +1,27 @@
 $headerHeight: 50px;
-$disabledColor: #dcdfe6;
+$disabledColor: #919191;
 $primaryColor: #9e7eff;
+$backgroundColor: #F4F2F5;
+$backgroundColor2: #2A2B4D;
 .flex {
     display: flex;
     &.align-center {
         align-items: center;
     }
+    &.justify-center {
+        justify-content: center;
+    }
+    &.flex-wrap {
+        flex-wrap: nowrap;
+    }
+}
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+.flex-row {
+    display: flex;
+    flex-direction: row;
 }
 .cursor-pointer {
     &:hover {

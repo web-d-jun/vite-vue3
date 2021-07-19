@@ -23,17 +23,28 @@ const AppMenu = defineAsyncComponent({
 
 <style>
 @import '@/scss/root.scss';
-body {
+body,
+html {
     margin: 0;
+    font-size: 62.5%;
 }
 body.dark {
     background-color: #1e1f21;
+}
+body.bright {
+    background-color: #f4f2f5;
+}
+* {
+    box-sizing: border-box;
 }
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 10px;
+}
+#menuContainer {
+    padding: 15px 0;
 }
 </style>
 
