@@ -52,7 +52,7 @@ onMounted(() => {
     -ms-user-select: none;
     user-select: none;
     &:hover {
-        background-color: rgba(#dcdfe6, 0.7);
+        background-color: rgba(#dcdfe6, 0.5);
     }
 
     &.round {

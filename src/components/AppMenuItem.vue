@@ -12,6 +12,6 @@
     height: auto;
     max-height: 100px;
     font-size: 1.3rem;
-    padding: 10px;
+    padding: 10px 20px;
 }
 </style>

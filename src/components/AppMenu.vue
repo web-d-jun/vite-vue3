@@ -50,7 +50,7 @@ import AppButton from 'components/AppButton.vue'
     }
 
     .menu-text__contents {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         color: var(--default-color)
     }
 }
