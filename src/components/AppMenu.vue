@@ -11,9 +11,11 @@
         <template v-for="i in 8" :key="i">
             <AppMenuItem>
                 <template #button>
-                    <AppButton>
+                    <AppButton textAlign="left">
                         <template #icon>
-                            <font-awesome-icon icon="home" class="icon" />
+                            <div class="icon__container">
+                                <font-awesome-icon icon="home" class="icon" />
+                            </div>
                         </template>
                         <template #text> <span class="menu-text__contents">DashBoard</span></template>
                     </AppButton>
@@ -28,7 +30,7 @@ import AppButton from 'components/AppButton.vue'
 </script>
 <style lang="scss" scoped>
 #menuContainer {
-    width: 300px;
+    width: 280px;
     height: calc(100% - #{$headerHeight});
     position: absolute;
     left: 0;
@@ -38,10 +40,18 @@ import AppButton from 'components/AppButton.vue'
             height: 40px;
         }
     }
-    .icon {
+    .icon__container {
+        display: inline-block;
+        width: 50px;
+        .icon {
+            font-size: 1.9rem;
+            color: var(--default-color)
+        }
     }
+
     .menu-text__contents {
         font-size: 1.8rem;
+        color: var(--default-color)
     }
 }
 </style>

@@ -159,8 +159,8 @@ onMounted(() => {
 }
 @keyframes expand {
     to {
-        top: -300px;
-        right: -100px;
+        top: -550px;
+        right: -200px;
     }
 }
 </style>

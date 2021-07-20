@@ -16,6 +16,7 @@
     }
     #menuContainer {
         // box-shadow: 0 3px 6px rgba(var(--primary-dark-color-rgb), 0.16), 0 3px 6px rgba(var(--primary-dark-color-rgb), 0.23);
+        background-color: $thirddColor;
     }
     #menuItemContainer {
         // border-top: 1px solid var(--default-color);
@@ -33,7 +34,7 @@
     }
     #menuContainer {
         box-shadow: 0 3px 6px rgba(var(--primary-bright-color-rgb), 0.16), 0 3px 6px rgba(var(--primary-bright-color-rgb), 0.23);
-        // background-color: #f85210;
+        background-color: $thirddColor;
     }
     #menuItemContainer {
         // border-top: 1px solid var(--default-color);
