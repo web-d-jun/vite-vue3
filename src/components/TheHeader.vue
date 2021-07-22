@@ -39,12 +39,12 @@ const EventListenerTheme = () => {
     const switchContainerElement = document.querySelector('.switch__container')
     const mouseOverOut = () => {
         themeButtonElement.addEventListener('mouseover', (e) => {
-            blackAndWhiteThemeElement.style.right = '-2500px'
-            blackAndWhiteThemeElement.style.top = '-2700px'
+            blackAndWhiteThemeElement.style.right = '-4500px'
+            blackAndWhiteThemeElement.style.top = '-4700px'
         })
         themeButtonElement.addEventListener('mouseout', (e) => {
-            blackAndWhiteThemeElement.style.right = '-3000px'
-            blackAndWhiteThemeElement.style.top = '-3000px'
+            blackAndWhiteThemeElement.style.right = '-5000px'
+            blackAndWhiteThemeElement.style.top = '-5000px'
         })
     }
     const mouseClick = () => {
@@ -140,13 +140,13 @@ onMounted(() => {
         }
         & .theme-change-animation {
             position: fixed;
-            z-index: -9999;
+            z-index: 1;
             border-radius: 50% 0 0 50%;
             background: #000;
-            width: 3000px;
-            height: 3000px;
-            right: -3000px;
-            top: -3000px;
+            width: 5000px;
+            height: 5000px;
+            right: -5000px;
+            top: -5000px;
             -webkit-transition: all 0.4s ease-in-out;
             -moz-transition: all 0.4s ease-in-out;
             -o-transition: all 0.4s ease-in-out;

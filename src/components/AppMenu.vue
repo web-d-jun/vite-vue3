@@ -1,6 +1,6 @@
 <template>
     <div id="menuContainer">
-        <div class="project-info__container flex flex-wrap">
+        <div class="project-info__container flex flex-wrap justify-center">
             <div class="logo__wrap">
                 <img src="@/assets/logo.png" class="logo" alt="" />
             </div>
