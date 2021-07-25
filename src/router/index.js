@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HelloWorld from '@/components/TheHeader.vue'
+import DashBoard from '@/views/DashBoard.vue'
 
 const routes = [
-    { path: '/', redirect: '/main' },
-    { path: '/main', component: HelloWorld },
+  { path: '/', redirect: '/main' },
+  { path: '/main', component: DashBoard },
 ]
 const router = createRouter({
-    history: createWebHistory(),
-    routes,
+  history: createWebHistory(),
+  routes,
 })
 
 export default router

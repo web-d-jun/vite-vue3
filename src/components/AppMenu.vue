@@ -30,7 +30,7 @@ import AppButton from 'components/AppButton.vue'
 </script>
 <style lang="scss" scoped>
 #menuContainer {
-    width: 280px;
+    width: $menuContainerWidth;
     height: calc(100% - #{$headerHeight});
     position: absolute;
     left: 0;
