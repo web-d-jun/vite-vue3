@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@fortawesome/vue-fontawesome": "^3.0.0-4",
+    "chart.js": "^3.4.1",
     "vue": "^3.0.5",
     "vue-router": "^4.0.10"
   },
