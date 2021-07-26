@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
+import { createApp, popScopeId } from 'vue'
 import App from './App.vue'
 import Router from '@/router/index'
 
@@ -7,9 +7,8 @@ import { faSun, faMoon, faHome, faChevronRight } from '@fortawesome/free-solid-s
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 library.add(faSun, faMoon, faHome, faChevronRight)
 
-import { Chart, registerables } from 'chart.js';
-Chart.register(...registerables);
- 
+import { Chart, registerables } from 'chart.js'
+Chart.register(...registerables)
 
 const app = createApp(App)
 app.use(Router)
