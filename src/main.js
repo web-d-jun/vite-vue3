@@ -10,8 +10,16 @@ library.add(faSun, faMoon, faHome, faChevronRight)
 import { Chart, registerables } from 'chart.js'
 Chart.register(...registerables)
 
+/**
+ * Global Components
+ */
+import LoadingComponent from 'components/AppLoading.vue'
+import ErrorComponent from 'components/AppError.vue'
+
 const app = createApp(App)
 app.use(Router)
 app.component('font-awesome-icon', FontAwesomeIcon)
+app.provide('LoadingComponent', LoadingComponent)
+app.provide('ErrorComponent', ErrorComponent)
 
 app.mount('#app')

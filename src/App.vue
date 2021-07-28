@@ -7,19 +7,17 @@
 </template>
 
 <script setup>
-import { defineAsyncComponent } from 'vue'
-import LoadingComponent from 'components/AppLoading.vue'
-import ErrorComponent from 'components/AppError.vue'
+import { defineAsyncComponent, inject } from 'vue'
 
 const TheHeader = defineAsyncComponent({
   loader: () => import('components/TheHeader.vue'),
-  loadingComponent: LoadingComponent,
-  errorComponent: ErrorComponent,
+  loadingComponent: inject('LoadingComponent'),
+  errorComponent: inject('ErrorComponent'),
 })
 const AppMenu = defineAsyncComponent({
   loader: () => import('components/AppMenu.vue'),
-  loadingComponent: LoadingComponent,
-  errorComponent: ErrorComponent,
+  loadingComponent: inject('LoadingComponent'),
+  errorComponent: inject('ErrorComponent'),
 })
 </script>
 
