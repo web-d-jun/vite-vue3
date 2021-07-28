@@ -37,7 +37,7 @@ const barChart = () => {
   const barCartConfig = {
     type: 'bar',
     data: {
-      labels: ['치킨', '피자', '햄버거', '라면', '자장면', '돈가스', '국밥', '된장찌개'],
+      labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
       datasets: [
         {
           label: '# of Votes',
@@ -110,7 +110,7 @@ const lineChart = () => {
   const lineCartConfig = {
     type: 'line',
     data: {
-      labels: ['치킨', '피자', '햄버거', '라면', '자장면', '돈가스', '국밥', '된장찌개'],
+      labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
       datasets: [
         {
           label: '# of Votes',
