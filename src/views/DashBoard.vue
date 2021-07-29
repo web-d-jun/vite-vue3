@@ -1,5 +1,5 @@
 <template>
-  <div id="dashboardContainer" class="flex">
+  <div id="dashboardContainer">
     <div class="chart-container__wrap">
       <div class="chart__container">
         <AppChart chartId="chartBar" :config="barCartConfig" :chartData="barChartInitData.value" />
@@ -15,6 +15,11 @@
     <div class="chart-container__wrap">
       <div class="chart__container radar">
         <AppChart chartId="chartRadar" :config="radarChartConfig" :chartData="radarChartInitData.value" />
+      </div>
+    </div>
+    <div class="chart-container__wrap">
+      <div class="chart__container radar">
+        <AppChart chartId="pie" :config="radarChartConfig" :chartData="radarChartInitData.value" />
       </div>
     </div>
   </div>
@@ -253,6 +258,7 @@ const { radarChartConfig, radarChartInitData } = radarChart()
 <style lang="scss" scoped>
 #dashboardContainer {
   width: 100%;
+  display: grid;
   .chart-container__wrap {
     flex: 1;
     padding: 4px;
