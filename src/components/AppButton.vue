@@ -16,24 +16,24 @@ const props = defineProps({
         type: String,
     },
 })
-onMounted(() => {
-    const buttonElement = document.querySelectorAll('.ripple-button')
-    buttonElement.forEach((el) => {
-        el.addEventListener('click', (event) => {
-            const circle = document.createElement('div')
-            circle.classList.add('ripple')
-            const d = Math.max(el.clientWidth, el.clientHeight)
-            circle.style.width = circle.style.height = `${d / 2}px`
-            const circleArea = d / 2
-            circle.style.left = `${event.clientX - el.offsetLeft - circleArea / 2}px`
-            circle.style.top = `${event.clientY - el.offsetTop - el.clientHeight - circleArea / 2}px`
-            setTimeout(() => {
-                el.removeChild(circle)
-            }, 1000)
-            el.appendChild(circle)
-        })
-    })
-})
+// onMounted(() => {
+//     const buttonElement = document.querySelectorAll('.ripple-button')
+//     buttonElement.forEach((el) => {
+//         el.addEventListener('click', (event) => {
+//             const circle = document.createElement('div')
+//             circle.classList.add('ripple')
+//             const d = Math.max(el.clientWidth, el.clientHeight)
+//             circle.style.width = circle.style.height = `${d / 2}px`
+//             const circleArea = d / 2
+//             circle.style.left = `${event.clientX - el.offsetLeft - circleArea / 2}px`
+//             circle.style.top = `${event.clientY - el.offsetTop - el.clientHeight - circleArea / 2}px`
+//             setTimeout(() => {
+//                 el.removeChild(circle)
+//             }, 1000)
+//             el.appendChild(circle)
+//         })
+//     })
+// })
 </script>
 <style lang="scss" scoped>
 .button {
