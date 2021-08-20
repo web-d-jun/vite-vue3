@@ -23,8 +23,13 @@ export default defineComponent({
       })
     }
     const setChartInfo = () => {
-      chart.data.datasets[0].data = chartData.value
-      chart.update()
+      console.log(chartId.value)
+      if (chartId.value === 'chartAniLine') {
+        console.log(chartData.value)
+      } else {
+        chart.data.datasets[0].data = chartData.value
+        chart.update()
+      }
     }
     watch(chartData, () => {
       setChartInfo()
